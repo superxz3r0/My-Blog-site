@@ -1,5 +1,6 @@
 site_name: My Blog
 theme:
   name: terminal
+  palette: dark
 
 
