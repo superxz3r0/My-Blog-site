@@ -1,9 +1,20 @@
 site_name: My Blog
+
 nav:
   - Home: index.md
   - About: about.md
+
 theme:
   name: terminal  
   palette: dark
+
+plugins:
+  - search
+  - blog:
+      blog_dir: blog
+      blog_toc: true
+      post_excerpt: true
+  - macros
+
 
 
