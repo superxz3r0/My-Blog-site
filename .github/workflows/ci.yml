@@ -1,8 +1,9 @@
-name: ci 
+name: Deploy MkDocs
+
 on:
   push:
     branches:
-      - master 
+      - master
       - main
 
 permissions:
@@ -11,22 +12,30 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
 
-      - name: Configure Git Credentials
-        run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-      
-      - uses: actions/setup-python@v5
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
         with:
-          python-version: 3.x
-      
-      - run: pip install mkdocs mkdocs-terminal mkdocs-macros-plugin
+          fetch-depth: 0  # Ensures all history is fetched
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install Dependencies
+        run: |
+          pip install -U pip
+          pip install mkdocs mkdocs-terminal mkdocs-macros-plugin
 
       - name: Run Python Macros Script (Auto-Update Index)
-        run: python main.py
-      
+        run: |
+          if [ -f main.py ]; then
+            python main.py
+          else
+            echo "⚠️ Warning: main.py not found, skipping..."
+          fi
+
       - name: Deploy to GitHub Pages
         run: mkdocs gh-deploy --force --remote-name origin
