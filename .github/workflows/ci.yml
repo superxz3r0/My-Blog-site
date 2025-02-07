@@ -9,6 +9,7 @@ on:
 permissions:
   contents: write
 
+  
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -27,7 +28,7 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install -U pip
-          pip install mkdocs mkdocs-terminal mkdocs-macros-plugin
+          pip install mkdocs mkdocs-terminal mkdocs-macros-plugin mkdocs-blog-plugin
 
       - name: Run Python Macros Script (Auto-Update Index)
         run: |
