@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Configure Git Credentials
         run: |
           git config user.name github-actions[bot]
@@ -23,7 +23,10 @@ jobs:
         with:
           python-version: 3.x
       
-      - run: pip install mkdocs mkdocs-terminal  # Install MkDocs explicitly
+      - run: pip install mkdocs mkdocs-terminal mkdocs-macros-plugin
 
+      - name: Run Python Macros Script (Auto-Update Index)
+        run: python main.py
+      
       - name: Deploy to GitHub Pages
         run: mkdocs gh-deploy --force --remote-name origin
