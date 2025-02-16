@@ -1,0 +1,14 @@
+:root {
+    --md-primary-fg-color: #ff5722; /* Change primary color */
+    --md-accent-fg-color: #ff9800;  /* Accent color */
+    --md-code-bg-color: #1e1e1e;   /* Darker background for code blocks */
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+a:hover {
+    transition: color 0.3s ease-in-out;
+}

@@ -3,18 +3,34 @@ site_name: My Blog
 nav:
   - Home: index.md
   - About: about.md
+  - Blog: blog_index.md
 
 theme:
-  name: terminal  
-  palette: dark
+  name: 'terminal'
+  features:
+    - navigation.tabs
+    - navigation.expand
+    - content.code.copy
+    - content.action.edit
+    - toc.integrate
+
+
 
 plugins:
   - search
   - blog:
       blog_dir: blog
-      blog_toc: true
-      post_excerpt: true
+      categories: true
+      post_readtime: true
   - macros
+
+
+
+extra_css:
+  - assets/custom.css
+
+  
+
 
 
 
