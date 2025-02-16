@@ -1,12 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap');
+
 :root {
+    --md-text-font: "JetBrains Mono", monospace;
+    --md-code-font: "JetBrains Mono", monospace;
     --md-primary-fg-color: #ff5722; /* Change primary color */
     --md-accent-fg-color: #ff9800;  /* Accent color */
     --md-code-bg-color: #1e1e1e;   /* Darker background for code blocks */
 }
 
 
-html {
+body, html {
     scroll-behavior: smooth;
+    font-family: "JetBrains Mono", monospace !important;
 }
 
 a:hover {
